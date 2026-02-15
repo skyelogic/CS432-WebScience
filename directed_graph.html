@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directed Graph Visualization & Analysis</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        #canvas {
+            background-color: white;
+            border: 2px solid #333;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: move;
+        }
+        
+        .legend {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-width: 1200px;
+        }
+        
+        .legend-item {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .legend-line {
+            display: inline-block;
+            width: 40px;
+            height: 3px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        
+        .stats {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-width: 1200px;
+            font-size: 14px;
+        }
+        
+        .stats strong {
+            color: #333;
+        }
+        
+        .analysis {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: white;
+            border: 2px solid #333;
+            border-radius: 5px;
+            max-width: 1200px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .analysis h2 {
+            color: #333;
+            border-bottom: 3px solid #333;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .category {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 3px;
+        }
+        
+        .category h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .category p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        .category strong {
+            color: #c0392b;
+            font-size: 1.1em;
+        }
+        
+        .explanation {
+            color: #555;
+            font-style: italic;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Directed Graph Visualization & Analysis</h1>
+    <canvas id="canvas" width="1200" height="800"></canvas>
+    
+    <div class="legend">
+        <div class="legend-item">
+            <span class="legend-line" style="background-color: #666;"></span>
+            <span>Directed Edge</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-line" style="background-color: #e74c3c;"></span>
+            <span>Bidirectional Connection (A ↔ B, C ↔ G)</span>
+        </div>
+    </div>
+    
+    <div class="stats">
+        <strong>Graph Statistics:</strong> 15 nodes, 17 edges, 2 bidirectional connections<br>
+        <strong>Nodes:</strong> A, B, C, D, E, F, G, H, I, J, K, L, M, N, O<br>
+        <strong>Drag nodes to rearrange</strong> | <strong>Click canvas to reset positions</strong>
+    </div>
+
+    <div class="analysis">
+        <h2>Graph Structure Analysis</h2>
+        
+        <div class="category">
+            <h3>SCC (Strongly Connected Component):</h3>
+            <p><strong>A, B, C, D, G</strong></p>
+            <p class="explanation">These nodes form the largest strongly connected component where every node can reach every other node. This is the "giant" SCC at the core of the web graph structure.</p>
+        </div>
+        
+        <div class="category">
+            <h3>IN:</h3>
+            <p><strong>E, F, M</strong></p>
+            <p class="explanation">These nodes can reach the SCC but cannot be reached from the SCC. They represent pages that link to the core but have no incoming links from it (e.g., new pages pointing to established sites).</p>
+        </div>
+        
+        <div class="category">
+            <h3>OUT:</h3>
+            <p><strong>H, L</strong></p>
+            <p class="explanation">These nodes can be reached from the SCC but cannot reach back to the SCC. They represent destination pages that can be reached from the core but don't link back (e.g., corporate or government pages).</p>
+        </div>
+        
+        <div class="category">
+            <h3>Tendrils:</h3>
+            <p><strong>None</strong></p>
+            <p class="explanation">Tendrils would be nodes reachable from IN but not reaching SCC, or reachable from SCC but not reaching OUT. This graph has no tendril nodes.</p>
+        </div>
+        
+        <div class="category">
+            <h3>Tubes:</h3>
+            <p><strong>J, N, O</strong></p>
+            <p class="explanation">These nodes serve as tubes by creating paths from IN to OUT that bypass the SCC. They act as conduits connecting the incoming region directly to the outgoing region:
+            <br><br>
+            • <strong>Node O:</strong> Reachable from IN node E (via E→O), and can reach OUT node L (via O→J→N→L)<br>
+            • <strong>Node J:</strong> Reachable from IN node E (via E→O→J), and can reach OUT node L (via J→N→L)<br>
+            • <strong>Node N:</strong> Reachable from IN node E (via E→O→J→N), and can reach OUT node L (via N→L)<br>
+            <br>
+            The tube pathway is: E → O → J → N → L, which connects the IN component to the OUT component without passing through the SCC.
+            </p>
+        </div>
+        
+        <div class="category">
+            <h3>Disconnected:</h3>
+            <p><strong>I, K</strong></p>
+            <p class="explanation">These nodes are not connected to the main component structure (SCC, IN, OUT). Node K points to I (K→I), but neither can reach nor be reached by any other nodes in the graph. They form an isolated component.</p>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const width = canvas.width;
+        const height = canvas.height;
+
+        // Define edges
+        const edges = [
+            {source: 'A', target: 'B'},
+            {source: 'B', target: 'A'},
+            {source: 'B', target: 'C'},
+            {source: 'C', target: 'D'},
+            {source: 'C', target: 'G'},
+            {source: 'D', target: 'A'},
+            {source: 'D', target: 'H'},
+            {source: 'E', target: 'F'},
+            {source: 'E', target: 'O'},
+            {source: 'F', target: 'G'},
+            {source: 'G', target: 'C'},
+            {source: 'H', target: 'L'},
+            {source: 'J', target: 'N'},
+            {source: 'K', target: 'I'},
+            {source: 'M', target: 'A'},
+            {source: 'N', target: 'L'},
+            {source: 'O', target: 'J'}
+        ];
+
+        // Define node categories
+        const categories = {
+            scc: new Set(['A', 'B', 'C', 'D', 'G']),
+            in: new Set(['E', 'F', 'M']),
+            out: new Set(['H', 'L']),
+            tubes: new Set(['J', 'N', 'O']),
+            disconnected: new Set(['I', 'K'])
+        };
+
+        // Create nodes from edges
+        const nodeMap = new Map();
+        edges.forEach(edge => {
+            if (!nodeMap.has(edge.source)) {
+                nodeMap.set(edge.source, {
+                    id: edge.source,
+                    x: 0,
+                    y: 0,
+                    vx: 0,
+                    vy: 0
+                });
+            }
+            if (!nodeMap.has(edge.target)) {
+                nodeMap.set(edge.target, {
+                    id: edge.target,
+                    x: 0,
+                    y: 0,
+                    vx: 0,
+                    vy: 0
+                });
+            }
+        });
+
+        const nodes = Array.from(nodeMap.values());
+
+        // Initialize positions randomly
+        nodes.forEach(node => {
+            node.x = Math.random() * (width - 200) + 100;
+            node.y = Math.random() * (height - 200) + 100;
+        });
+
+        // Identify bidirectional edges
+        const bidirectional = new Set();
+        edges.forEach(e1 => {
+            edges.forEach(e2 => {
+                if (e1.source === e2.target && e1.target === e2.source) {
+                    const pair = [e1.source, e1.target].sort().join('-');
+                    bidirectional.add(pair);
+                }
+            });
+        });
+
+        // Dragging state
+        let draggedNode = null;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        // Mouse event handlers
+        canvas.addEventListener('mousedown', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            // Check if clicking on a node
+            for (const node of nodes) {
+                const dx = mouseX - node.x;
+                const dy = mouseY - node.y;
+                if (Math.sqrt(dx * dx + dy * dy) < 25) {
+                    draggedNode = node;
+                    offsetX = dx;
+                    offsetY = dy;
+                    return;
+                }
+            }
+            
+            // If not on a node, reset
+            runSimulation();
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (draggedNode) {
+                const rect = canvas.getBoundingClientRect();
+                draggedNode.x = e.clientX - rect.left - offsetX;
+                draggedNode.y = e.clientY - rect.top - offsetY;
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            draggedNode = null;
+        });
+
+        // Get node color based on category
+        function getNodeColor(nodeId) {
+            if (categories.scc.has(nodeId)) return '#ffeb3b'; // Yellow for SCC
+            if (categories.in.has(nodeId)) return '#4CAF50'; // Green for IN
+            if (categories.out.has(nodeId)) return '#2196F3'; // Blue for OUT
+            if (categories.tubes.has(nodeId)) return '#9C27B0'; // Purple for Tubes
+            if (categories.disconnected.has(nodeId)) return '#9E9E9E'; // Gray for Disconnected
+            return 'white';
+        }
+
+        // Force simulation
+        function applyForces() {
+            const nodeRadius = 25;
+            const linkDistance = 150;
+            const repulsion = 800;
+            const damping = 0.8;
+
+            // Repulsion between nodes
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[j].x - nodes[i].x;
+                    const dy = nodes[j].y - nodes[i].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                    
+                    if (dist < 300) {
+                        const force = repulsion / (dist * dist);
+                        const fx = (dx / dist) * force;
+                        const fy = (dy / dist) * force;
+                        
+                        nodes[i].vx -= fx;
+                        nodes[i].vy -= fy;
+                        nodes[j].vx += fx;
+                        nodes[j].vy += fy;
+                    }
+                }
+            }
+
+            // Spring forces for edges
+            edges.forEach(edge => {
+                const source = nodeMap.get(edge.source);
+                const target = nodeMap.get(edge.target);
+                
+                const dx = target.x - source.x;
+                const dy = target.y - source.y;
+                const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                
+                const force = (dist - linkDistance) * 0.1;
+                const fx = (dx / dist) * force;
+                const fy = (dy / dist) * force;
+                
+                source.vx += fx;
+                source.vy += fy;
+                target.vx -= fx;
+                target.vy -= fy;
+            });
+
+            // Center attraction
+            const centerX = width / 2;
+            const centerY = height / 2;
+            nodes.forEach(node => {
+                const dx = centerX - node.x;
+                const dy = centerY - node.y;
+                node.vx += dx * 0.01;
+                node.vy += dy * 0.01;
+            });
+
+            // Apply velocities
+            nodes.forEach(node => {
+                node.vx *= damping;
+                node.vy *= damping;
+                node.x += node.vx;
+                node.y += node.vy;
+
+                // Keep in bounds
+                node.x = Math.max(50, Math.min(width - 50, node.x));
+                node.y = Math.max(50, Math.min(height - 50, node.y));
+            });
+        }
+
+        // Draw arrow
+        function drawArrow(fromX, fromY, toX, toY, color, curve = 0) {
+            const dx = toX - fromX;
+            const dy = toY - fromY;
+            const angle = Math.atan2(dy, dx);
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            // Shorten to account for node radius
+            const nodeRadius = 25;
+            const startX = fromX + Math.cos(angle) * nodeRadius;
+            const startY = fromY + Math.sin(angle) * nodeRadius;
+            const endX = toX - Math.cos(angle) * nodeRadius;
+            const endY = toY - Math.sin(angle) * nodeRadius;
+
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+
+            if (curve !== 0) {
+                // Curved line for bidirectional
+                const midX = (startX + endX) / 2;
+                const midY = (startY + endY) / 2;
+                const controlX = midX - curve * dy / dist * 50;
+                const controlY = midY + curve * dx / dist * 50;
+                
+                ctx.moveTo(startX, startY);
+                ctx.quadraticCurveTo(controlX, controlY, endX, endY);
+            } else {
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(endX, endY);
+            }
+            ctx.stroke();
+
+            // Arrowhead
+            const headLen = 12;
+            let arrowAngle = angle;
+            
+            if (curve !== 0) {
+                arrowAngle = Math.atan2(endY - (startY + endY) / 2, endX - (startX + endX) / 2);
+            }
+            
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(endX, endY);
+            ctx.lineTo(
+                endX - headLen * Math.cos(arrowAngle - Math.PI / 6),
+                endY - headLen * Math.sin(arrowAngle - Math.PI / 6)
+            );
+            ctx.lineTo(
+                endX - headLen * Math.cos(arrowAngle + Math.PI / 6),
+                endY - headLen * Math.sin(arrowAngle + Math.PI / 6)
+            );
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        // Draw everything
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw edges
+            edges.forEach(edge => {
+                const source = nodeMap.get(edge.source);
+                const target = nodeMap.get(edge.target);
+                
+                const pair = [edge.source, edge.target].sort().join('-');
+                const isBidirectional = bidirectional.has(pair);
+                
+                let color = '#666';
+                let curve = 0;
+                
+                if (isBidirectional) {
+                    color = '#e74c3c';
+                    curve = edge.source < edge.target ? 1 : -1;
+                }
+                
+                drawArrow(source.x, source.y, target.x, target.y, color, curve);
+            });
+
+            // Draw nodes
+            nodes.forEach(node => {
+                // Node circle
+                ctx.fillStyle = getNodeColor(node.id);
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 25, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+
+                // Node label
+                ctx.fillStyle = '#333';
+                ctx.font = 'bold 16px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(node.id, node.x, node.y);
+            });
+        }
+
+        // Animation loop
+        let iterations = 0;
+        function animate() {
+            if (!draggedNode && iterations < 200) {
+                applyForces();
+                iterations++;
+            }
+            draw();
+            requestAnimationFrame(animate);
+        }
+
+        function runSimulation() {
+            // Reinitialize positions
+            nodes.forEach(node => {
+                node.x = Math.random() * (width - 200) + 100;
+                node.y = Math.random() * (height - 200) + 100;
+                node.vx = 0;
+                node.vy = 0;
+            });
+            iterations = 0;
+        }
+
+        // Start
+        animate();
+    </script>
+</body>
+</html>
