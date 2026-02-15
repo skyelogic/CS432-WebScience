@@ -15,13 +15,13 @@ Norfolk, Virginia
 ---
 
 ## 📋 Table of Contents
-- [Question 1: Directed Graph Visualization](#question-1-directed-graph-visualization)
-- [Question 2: Using cURL](#question-2-using-curl)
-- [Question 3: Web URI Collector](#question-3-web-uri-collector)
-- [Files in This Repository](#files-in-this-repository)
+- [Question 1: Directed Graph Visualization](#-question-1-directed-graph-visualization)
+- [Question 2: Using cURL](#-question-2-using-curl)
+- [Question 3: Web URI Collector](#%EF%B8%8F-question-3-web-uri-collector)
+- [Files in This Repository](#-files-in-this-repository)
 - [Technologies Used](#technologies-used)
-- [How to Run](#how-to-run)
-- [References](#references)
+- [How to Run](#-how-to-run)
+- [References](#-references)
 
 ---
 
