@@ -1,4 +1,4 @@
-# QuillCheck - AI Originality Scanner
+# QuillCheck: AI Originality Scanner (1st of its kind)
 
 ---
 
@@ -14,7 +14,9 @@ Norfolk, Virginia
 🔗 **GitHub Repository:** [skyelogic/quillcheck](https://github.com/skyelogic/quillcheck)  
 🌐 **Live Site:** [QuillCheck](https://quillcheck.com)  
 
-**Note:** While I understand the original requirement was to use the 500 unique URIs gathered in HW1, I realized that approach felt a bit boring. Instead, I wanted to build something more practical and interactive.  
+**Note:** Something like this didn't exist so I simply made one.  
+
+While I understand the original requirement was to use the 500 unique URIs gathered in HW1, I realized that approach felt a bit boring. Instead, I wanted to build something more practical and interactive.  
 
 So, I designed the system to allow users to submit their own URIs, which are then analyzed against AI detection tools to evaluate authenticity. From there, I ensured that all required assignment components were still fully addressed.  
 
