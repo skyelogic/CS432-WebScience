@@ -93,6 +93,3 @@ Special thanks to:
   <a href="https://donnelgarner.com">🌐 Personal Website</a> •
   <a href="https://github.com/skyelogic">💻 GitHub</a>
 </p>
-
-
-🌐 Personal Website • 💻 GitHub
