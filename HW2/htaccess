@@ -1,0 +1,35 @@
+Options -Indexes
+
+# -------------------------------------------------------
+#  Force HTTP (no SSL) — remove this block once you have
+#  an SSL cert installed and want to enforce HTTPS.
+# -------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} on
+    RewriteRule ^ http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# Deny direct access to sensitive files
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+<Files "db.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+<Files "scanner.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+<Files "*.db">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Cache folder protection — block direct access to both subdirectories
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^cache/ - [F,L]
+</IfModule>
