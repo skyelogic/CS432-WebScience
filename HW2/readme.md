@@ -376,6 +376,14 @@ This is why real-world search engines like Google combine both signals. PageRank
 
 ---
 
+## ⚠️ Challenges Encountered
+Problem: Some of the largest challenges, aside from VPS issues like caching, DNS, etc...
+
+- Boilerplate Stripping was the biggest technical headache. The first version of strip_boilerplate() was essentially useless. It only removed <script> and <style> tags but left headers, footers, nav bars, sidebars, and all the structural chrome intact. The cached files were full of noise. It took a complete rewrite with a multi-pass heuristic approach, pretty much nuking entire tag families with their content, regex-matching on id/class keywords, running the noise removal twice to catch nested containers, and extracting only the <body> to get clean text worth sending to EdenAI.
+- The input[type="url"] vs input[type="text"] CSS mismatch. When the TF-IDF page was built, the scan form CSS only targeted input[type="url"] specifically, so the text input on tfidf-table.php never got flex: 1. Had to patch it in four places across the stylesheet.
+- Windows line endings (CRLF) in the PHP files. When trying to do string replacements on config.php, the \r characters embedded in every line caused the replacement strings to not match, even when the content looked identical. Required a sed strip pass before edits could land.
+- IDF requires the full corpus before you can compute anything. This is a conceptual trap that would have produced subtly wrong results. If you compute IDF document-by-document as you load each file, df(t) is wrong for every document except the last one.
+- Dark mode defaulting to the OS preference instead of light. The initial JS checked prefers-color-scheme: dark and respected the system setting, which meant users on dark-mode OS setups would land on a dark site even on first visit. Since the parchment aesthetic is the whole point, that was the wrong default.
 
 ## 🛠️ Technologies Used
 
