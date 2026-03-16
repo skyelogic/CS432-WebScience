@@ -36,7 +36,7 @@ Norfolk, Virginia
 ```bash
 bash run_memgator.sh
 ```
-> ⚠️ This will take ~2 hours to complete (520 URIs × 15 second sleep)
+> ⚠️ This will take ~3 hours to complete (520 URIs × 15 second sleep)
 
 ### Step 2: Analyze the TimeMaps
 ```bash
