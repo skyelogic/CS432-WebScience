@@ -59,6 +59,8 @@ The following command was used for each URI:
     <URI> > timemaps/<md5hash>.json
 ```
 
+![Shell Image](fetching%20timemaps.png)
+
 ### Notes
 - A 15-second sleep was added between each request to avoid getting blocked
   by web archives
