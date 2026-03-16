@@ -7,12 +7,12 @@
 Old Dominion University  
 Norfolk, Virginia  
 
-**CS432 – Web Science**  
+**CS432 - Web Science**  
 **Spring 2026**  
 
 📅 **Due Date:** March 15, 2026  
-🔗 **GitHub Repository:** 
-🌐 **Live Site:** N/A
+🔗 **GitHub Repository:**  
+🌐 **Live Site:** N/A  
 
 ---
 
@@ -27,67 +27,111 @@ Norfolk, Virginia
 
 ## 🚀 How to Run
 
-### Option 1: Visit Website
+### Requirements
+- WSL or Linux terminal
+- MemGator binary (see Q1)
+- Python 3
 
-### Option 2: PHP Built-in Server
+### Step 1: Run MemGator to collect TimeMaps
+```bash
+bash run_memgator.sh
+```
+> ⚠️ This will take ~2 hours to complete (520 URIs × 15 second sleep)
 
-### Option 3: Deploy to Web Server
+### Step 2: Analyze the TimeMaps
+```bash
+python3 mementos.py
+```
 
 ---
 
 ## 📊 Q1: TimeMaps
 
+### Process
+TimeMaps were collected for each of the 520 unique URIs from HW1 using a 
+locally installed version of MemGator.
+
+The following command was used for each URI:
+```bash
+./memgator-windows-amd64.exe -c "ODU CS432/532 dgarn008@odu.edu" \
+    -a https://raw.githubusercontent.com/odu-cs432-websci/public/main/archives.json \
+    -F 2 -f JSON \
+    <URI> > timemaps/<md5hash>.json
+```
+
+### Notes
+- A 15-second sleep was added between each request to avoid getting blocked
+  by web archives
+- The `-a` flag points to an alternate `archives.json` file as required
+- If MemGator returned nothing for a URI, an empty file was saved —
+  this means 0 mementos for that URI
+- TimeMaps are stored in the `/timemaps` folder, named by the MD5 hash of
+  each URI
+
 ---
 
 ## 📐 Q2: Mementos
 
+### Memento Count Table
+
+| Mementos  | URI-Rs |
+|-----------|--------|
+| 0         |        |
+| 1-10      |        |
+| 11-50     |        |
+| 51-100    |        |
+| 101-500   |        |
+| 501+      |        |
+
+> 📝 *Table will be filled in once MemGator finishes collecting all TimeMaps*
+
+### Q: What URI-Rs had the most mementos? Did that surprise you?
+
+> 📝 *To be filled in after analysis is complete*
+
 ---
 
 ## ⚠️ Challenges Encountered
-Problem: Some of the largest challenges, aside from VPS issues like caching, DNS, etc...
 
-- Boilerplate Stripping was the biggest technical headache. The first version of strip_boilerplate() was essentially useless. It only removed <script> and <style> tags but left headers, footers, nav bars, sidebars, and all the structural chrome intact. The cached files were full of noise. It took a complete rewrite with a multi-pass heuristic approach, pretty much nuking entire tag families with their content, regex-matching on id/class keywords, running the noise removal twice to catch nested containers, and extracting only the <body> to get clean text worth sending to EdenAI.
-- The input[type="url"] vs input[type="text"] CSS mismatch. When the TF-IDF page was built, the scan form CSS only targeted input[type="url"] specifically, so the text input on tfidf-table.php never got flex: 1. Had to patch it in four places across the stylesheet.
-- Windows line endings (CRLF) in the PHP files. When trying to do string replacements on config.php, the \r characters embedded in every line caused the replacement strings to not match, even when the content looked identical. Required a sed strip pass before edits could land.
-- IDF requires the full corpus before you can compute anything. This is a conceptual trap that would have produced subtly wrong results. If you compute IDF document-by-document as you load each file, df(t) is wrong for every document except the last one.
-- Dark mode defaulting to the OS preference instead of light. The initial JS checked prefers-color-scheme: dark and respected the system setting, which meant users on dark-mode OS setups would land on a dark site even on first visit. Since the parchment aesthetic is the whole point, that was the wrong default.
+- **Windows line endings (CRLF)** — The bash script was created on Windows,
+  which caused `\r` characters to break the script in WSL. Fixed using:
+  `sed -i 's/\r//' run_memgator.sh`
+- **MemGator consuming stdin** — The while loop only processed the first URI
+  because MemGator was consuming stdin. Fixed by adding `< /dev/null` to
+  redirect MemGator's stdin away from the loop.
+- **chmod not available on Windows** — Had to use WSL instead of PowerShell
+  to run the bash script since Windows doesn't support Unix commands natively.
+
+---
 
 ## 🛠️ Technologies Used
 
 ### Languages & Runtimes
-- **PHP 8+** — backend fetch, stripping, caching, database writes, and template rendering
-- **JavaScript (Vanilla)** — dark mode toggle with `localStorage` persistence
-- **HTML5** — semantic structure
-- **CSS3** — custom parchment design system, CSS variables, responsive grid, dark mode via `html.dark` class
+- **Bash**: shell script to automate MemGator calls across all 520 URIs
+- **Python 3**: parse TimeMaps, count mementos, and generate summary table
 
-### Libraries & APIs
-- **[EdenAI](https://www.edenai.run/)** — multi-provider AI detection API (Sapling provider)
-- **SQLite** (via PHP PDO) — lightweight scan history and URI-hash registry
-- **Google Fonts** — Cinzel Decorative, Cinzel, Playfair Display, EB Garamond
-
-### External Tools
-- **cURL** (PHP) — HTTP fetching with redirect following and custom user-agent
-- **MD5** (PHP `md5()`) — URL hashing for deterministic cache filenames
-- **SSH / SFTP** — deployment to ODU web server
-- **VS Code** — primary development environment
+### Tools & Libraries
+- **MemGator**: Memento aggregator that queries multiple web archives
+- **Python `json`**: parse TimeMap JSON output from MemGator
+- **Python `hashlib`**: MD5 hashing of URIs for consistent filenames
+- **Python `collections.Counter`**: tally mementos into bins for the table
+- **WSL** (Windows Subsystem for Linux): run bash scripts on Windows
 
 ---
 
 ## 📚 References
 
-✅ **[EdenAI Documentation](https://docs.edenai.run/)** - AI Detection API reference  
-✅ **[PHP cURL Manual](https://www.php.net/manual/en/book.curl.php)** - HTTP fetching  
-✅ **[PHP PDO / SQLite](https://www.php.net/manual/en/book.pdo.php)** - database layer  
-✅ **[MDN: CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)** - CSS variable system  
-✅ **[Google Fonts](https://fonts.google.com/)** - Cinzel, Playfair Display, EB Garamond  
-✅ **[Claude](https://claude.ai)** - Development assistance    
+✅ **[MemGator GitHub](https://github.com/oduwsdl/MemGator)** - Memento aggregator tool  
+✅ **[Memento Protocol (RFC 7089)](https://www.rfc-editor.org/rfc/rfc7089)** - How web archiving works  
+✅ **[Wayback Machine](https://web.archive.org/)** - Manual sanity checks on URIs  
+✅ **[archives.json](https://raw.githubusercontent.com/odu-cs432-websci/public/main/archives.json)** - Alternate archives list used with MemGator  
+✅ **[Claude](https://claude.ai)** - Development assistance  
 
 ---
 
 ## 📝 License
 
 This project is submitted as coursework for CS 432 at Old Dominion University.  
-The complete commercial version is protected. You may use this at your own discretion.  
 
 ---
 
