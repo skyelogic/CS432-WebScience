@@ -16,6 +16,7 @@ Norfolk, Virginia
 
 - [Homework 1](#homework-1)
 - [Homework 2](#homework-2)
+- [Homework 3](#homework-3)
 - [License](#-license)
 - [Acknowledgments](#-acknowledgments)
 
@@ -65,6 +66,23 @@ This assignment demonstrates:
 - Applied web science principles  
 
 QuillCheck moves beyond static analysis and explores real-world applications of web data processing and AI evaluation.
+
+---
+
+## Homework 3  
+🔗 [https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW2  ](https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW3)
+
+### Web Archiving - TimeMaps & Memento Analysis (Part 1)
+
+This assignment demonstrates:
+- Collecting TimeMaps for 520 unique URIs using the MemGator Memento Aggregator
+- Querying multiple web archives simultaneously to measure how well the web is preserved
+- Automating large-scale data collection with bash scripting and rate limiting
+- Parsing and analyzing JSON TimeMap data with Python
+- Applying the Memento Protocol (RFC 7089) to real-world web science research
+
+This project explores a fundamental question in web science:
+**how much of the web is actually archived, and how well?**
 
 ---
 
