@@ -76,18 +76,16 @@ The following command was used for each URI:
 
 | Mementos  | URI-Rs |
 |-----------|--------|
-| 0         |        |
-| 1-10      |        |
-| 11-50     |        |
-| 51-100    |        |
-| 101-500   |        |
-| 501+      |        |
-
-> 📝 *Table will be filled in once MemGator finishes collecting all TimeMaps*
+| 0         | 59     |
+| 1-10      | 122    |
+| 11-50     | 90     |
+| 51-100    | 33     |
+| 101-500   | 106    |
+| 501+      | 110    |
 
 ### Q: What URI-Rs had the most mementos? Did that surprise you?
 
-> 📝 *To be filled in after analysis is complete*
+https://www.messenger.com/ had the most mementos with 544,349, followed closely by https://www.linkedin.com/ with 541,759. This is not surprising. These sites are massively popular, high-traffic websites that have been around for many years, making them prime candidates for frequent archiving by multiple web archives. What is more interesting is that 59 out of 520 URIs (about 11%) had zero mementos at all, which aligns with research showing that a significant portion of the web remains unarchived.
 
 ---
 
