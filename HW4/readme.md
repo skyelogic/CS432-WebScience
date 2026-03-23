@@ -19,7 +19,7 @@ Norfolk, Virginia
 ## 📋 Table of Contents  
 - [How to Run](#-how-to-run)
 - [Q1: Analyze Datetimes of Mementos](#-q1-analyze-datetimes-of-mementos)
-- [Q2: Explore ArchiveWeb.page and ReplayWeb.page](#-q2-explore-archivewebpage-and-replaywebpage)
+- [Q2: Explore ArchiveWeb.page and ReplayWeb.page](#%EF%B8%8F-q2-explore-archivewebpage-and-replaywebpage)
 - [Technologies Used](#%EF%B8%8F-technologies-used)
 - [References](#-references)
 
@@ -72,7 +72,7 @@ The scatterplot uses a **logarithmic y-axis** to handle the wide spread in memen
 
 ### Scatterplot
 
-![HW4 Q1 Scatterplot — URI-R Age vs. Memento Count](HW4_Q1_scatterplot.png)
+![HW4 Q1 Scatterplot — URI-R Age vs. Memento Count](https://github.com/odu-cs432-websci/spr26-skyelogic/blob/main/HW4/HW4_Q1_scatterplot.png)
 
 *Figure 1. Age of URI-R (days since earliest memento) vs. Number of Mementos (log scale). n = 441 URI-Rs. Collection date: March 15, 2026.*
 
@@ -129,7 +129,7 @@ The archived collection is publicly available here:
 
 The screenshot below shows all 10 archived pages loaded from `homework-4.wacz` in ReplayWeb.page. The browser address bar confirms the WACZ file is being loaded from the local computer (`replayweb.page/?source=file%3A%2F%2F`...).
 
-![ReplayWeb.page Pages Tab Screenshot](replayweb_screenshot.png)
+![ReplayWeb.page Pages Tab Screenshot](https://github.com/odu-cs432-websci/spr26-skyelogic/blob/main/HW4/bandicam%202026-03-22%2020-40-07-730.png)
 
 *Figure 2. ReplayWeb.page Pages tab : 10 archived pages loaded from homework-4.wacz on local disk.*
 
@@ -145,7 +145,7 @@ The screenshot below shows all 10 archived pages loaded from `homework-4.wacz` i
 
 ### Bar Chart: URLs by File Type
 
-![HW4 Q2 Bar Chart — URLs by File Type](HW4_Q2_barchart.png)
+![HW4 Q2 Bar Chart — URLs by File Type](https://github.com/odu-cs432-websci/spr26-skyelogic/blob/main/HW4/HW4_Q2_barchart.png)
 
 *Figure 3. Number of archived URLs in homework-4.wacz by file type (715 total URLs across 10 pages).*
 
