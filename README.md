@@ -70,7 +70,7 @@ QuillCheck moves beyond static analysis and explores real-world applications of 
 ---
 
 ## Homework 3  
-🔗 [https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW2  ](https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW3)
+🔗 [https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW3](https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW3)
 
 ### Web Archiving - TimeMaps & Memento Analysis (Part 1)
 
@@ -83,6 +83,22 @@ This assignment demonstrates:
 
 This project explores a fundamental question in web science:
 **how much of the web is actually archived, and how well?**
+
+---
+
+## Homework 4  
+🔗 [https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW4](https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW4)
+
+### Web Archiving - Memento Age Analysis & WARC Collection (Part 2)
+
+This assignment demonstrates:
+- Parsing JSON TimeMaps to extract earliest memento datetimes for 441 URI-Rs
+- Visualizing the relationship between URI-R age and memento count using Python (matplotlib)
+- Archiving 10 live webpages using the ArchiveWeb.page browser extension (Webrecorder)
+- Replaying WACZ archives locally with ReplayWeb.page and analyzing captured URLs by file type
+
+This project explores two core web archiving concepts:
+how age and popularity shape a URI-R's memento history, and how browser-based archiving captures the full resource graph of modern web pages.
 
 ---
 
