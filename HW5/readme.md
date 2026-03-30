@@ -26,7 +26,7 @@ Norfolk, Virginia
 
 ---
 
-### Graph Partitioning — Zachary's Karate Club
+### Graph Partitioning - Zachary's Karate Club
 
 This assignment demonstrates:
 - Loading and visualizing real-world social network data using NetworkX
@@ -58,7 +58,7 @@ python3 karate_analysis.py
 
 ### Step 2: View the outputs
 All graph images are saved to the `graphs/` directory:
-- `graphs/q1_original_graph.png` — original graph colored by faction
+- `graphs/q1_original_graph.png` - original graph colored by faction
 - `graphs/gn_iter_01.png` through `graphs/gn_iter_11.png` - one image per GN iteration
 - `graphs/q3_comparison.png` - actual split vs. GN-predicted split side by side
 
@@ -72,8 +72,8 @@ All graph images are saved to the `graphs/` directory:
 The original Karate Club graph has **34 nodes** and **78 edges**. Nodes are colored by the
 faction each member actually joined after the club split:
 
-- 🔵 **Blue** — members who sided with the instructor, **Mr. Hi** (node 0)
-- 🔴 **Red** — members who sided with the administrator, **John A** (node 33)
+- 🔵 **Blue** - members who sided with the instructor, **Mr. Hi** (node 0)
+- 🔴 **Red** - members who sided with the administrator, **John A** (node 33)
 
 ![Q1 Original Graph](graphs/q1_original_graph.png)
 *Figure 1. Original Karate Club graph colored by actual faction membership.*
@@ -175,37 +175,37 @@ def girvan_newman_step(G):
 <details>
 <summary>Click to expand all 11 iteration graphs</summary>
 
-**Iteration 1** — Edge (0, 31) removed (betweenness = 35.70)  
+**Iteration 1** - Edge (0, 31) removed (betweenness = 35.70)  
 ![Iteration 1](graphs/gn_iter_01.png)
 
-**Iteration 2** — Edge (0, 2) removed (betweenness = 33.45)  
+**Iteration 2** - Edge (0, 2) removed (betweenness = 33.45)  
 ![Iteration 2](graphs/gn_iter_02.png)
 
-**Iteration 3** — Edge (0, 8) removed (betweenness = 38.66)  
+**Iteration 3** - Edge (0, 8) removed (betweenness = 38.66)  
 ![Iteration 3](graphs/gn_iter_03.png)
 
-**Iteration 4** — Edge (13, 33) removed (betweenness = 41.00)  
+**Iteration 4** - Edge (13, 33) removed (betweenness = 41.00)  
 ![Iteration 4](graphs/gn_iter_04.png)
 
-**Iteration 5** — Edge (19, 33) removed (betweenness = 61.62)  
+**Iteration 5** - Edge (19, 33) removed (betweenness = 61.62)  
 ![Iteration 5](graphs/gn_iter_05.png)
 
-**Iteration 6** — Edge (2, 32) removed (betweenness = 50.10)  
+**Iteration 6** - Edge (2, 32) removed (betweenness = 50.10)  
 ![Iteration 6](graphs/gn_iter_06.png)
 
-**Iteration 7** — Edge (1, 30) removed (betweenness = 71.81)  
+**Iteration 7** - Edge (1, 30) removed (betweenness = 71.81)  
 ![Iteration 7](graphs/gn_iter_07.png)
 
-**Iteration 8** — Edge (1, 2) removed (betweenness = 54.63)  
+**Iteration 8** - Edge (1, 2) removed (betweenness = 54.63)  
 ![Iteration 8](graphs/gn_iter_08.png)
 
-**Iteration 9** — Edge (2, 3) removed (betweenness = 53.83)  
+**Iteration 9** - Edge (2, 3) removed (betweenness = 53.83)  
 ![Iteration 9](graphs/gn_iter_09.png)
 
-**Iteration 10** — Edge (2, 7) removed (betweenness = 71.38)  
+**Iteration 10** - Edge (2, 7) removed (betweenness = 71.38)  
 ![Iteration 10](graphs/gn_iter_10.png)
 
-**Iteration 11** — Edge (2, 13) removed (betweenness = 142.50) — **SPLIT!**  
+**Iteration 11** - Edge (2, 13) removed (betweenness = 142.50) - **SPLIT!**  
 ![Iteration 11](graphs/gn_iter_11.png)
 
 </details>
@@ -214,7 +214,7 @@ def girvan_newman_step(G):
 > **Q: How many iterations did it take to split the graph?**
 >
 > **11 iterations.** The graph split into 2 connected components after removing edge (2, 13) in
-> iteration 11. The decisive edge had a betweenness score of **142.50** — nearly double the
+> iteration 11. The decisive edge had a betweenness score of **142.50** - nearly double the
 > next-highest score in the sequence. Node 2 had become the sole structural bridge between the
 > two emerging clusters after its other connections were progressively severed, making this
 > the natural breaking point.
@@ -248,7 +248,7 @@ def girvan_newman_step(G):
 > **No. nodes 2 and 8 were misclassified.** Both are actual Mr. Hi members (blue) but ended
 > up in the John A component after the GN split. Node 2 is a high-degree node (9 edges) that
 > connects to both factions. The Girvan-Newman algorithm systematically removed all 5 of its
-> edges to the Mr. Hi cluster across iterations 2, 8, 9, 10, and 11 — leaving it structurally
+> edges to the Mr. Hi cluster across iterations 2, 8, 9, 10, and 11 - leaving it structurally
 > attached only to the John A side. Node 8 was similarly isolated from its true faction once
 > those bridge edges were cut.
 >
@@ -276,15 +276,15 @@ def girvan_newman_step(G):
 - Girvan, M., & Newman, M. E. J. (2002). Community structure in social and biological networks. *Proceedings of the National Academy of Sciences, 99*(12), 7821–7826.
 - Brandes, U. (2001). A faster algorithm for betweenness centrality. *Journal of Mathematical Sociology, 25*(2), 163–177.
 - Hagberg, A., Swart, P., & Schult, D. (2008). Exploring network structure, dynamics, and function using NetworkX. *Proceedings of the 7th Python in Science Conference.*
-- Zachary's Karate Club — Wikipedia: https://en.wikipedia.org/wiki/Zachary%27s_karate_club
+- Zachary's Karate Club - Wikipedia: https://en.wikipedia.org/wiki/Zachary%27s_karate_club
 
 ---
 
 ## 🙏 Acknowledgments
 
 Special thanks to:  
-- **NASREEN MUHAMMAD ARIF** — Course instructor  
-- **Old Dominion University** — Computer Science program  
+- **NASREEN MUHAMMAD ARIF** - Course instructor  
+- **Old Dominion University** - Computer Science program  
 
 ---
 
