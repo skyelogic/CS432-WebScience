@@ -62,6 +62,9 @@ All graph images are saved to the `graphs/` directory:
 - `graphs/gn_iter_01.png` through `graphs/gn_iter_11.png` - one image per GN iteration
 - `graphs/q3_comparison.png` - actual split vs. GN-predicted split side by side
 
+![Python Output 1](python_code_1.png)
+![Python Output 2](python_code_2.png)
+
 ---
 
 ## 📊 Q1: Color Nodes Based on Final Split
