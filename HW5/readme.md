@@ -72,7 +72,7 @@ faction each member actually joined after the club split:
 - 🔵 **Blue** — members who sided with the instructor, **Mr. Hi** (node 0)
 - 🔴 **Red** — members who sided with the administrator, **John A** (node 33)
 
-![Q1 Original Graph](q1_original_graph.png)
+![Q1 Original Graph](graphs/q1_original_graph.png)
 *Figure 1. Original Karate Club graph colored by actual faction membership.*
 
 ### Answer
