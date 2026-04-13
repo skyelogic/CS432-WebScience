@@ -12,12 +12,12 @@
 - [Overview](#overview)
 - [Dataset](#dataset)
 - [Setup & Running](#setup--running)
-- [Q1: Finding a Substitute User](#q1--finding-a-substitute-user)
-- [Q2: User Correlations](#q2--user-correlations)
-- [Q3: Film Recommendations](#q3--film-recommendations)
-- [Q4: Item-Based Correlations](#q4--item-based-correlations)
-- [Technologies](#technologies)
-- [References](#references)
+- [Q1: Finding a Substitute User](#q1-finding-a-substitute-user)
+- [Q2: User Correlations](#q2-user-correlations)
+- [Q3: Film Recommendations](#q3-film-recommendations)
+- [Q4: Item-Based Correlations](#q4-item-based-correlations)
+- [Technologies](#technologies)  
+- [References](#references)  
 
 ---
 
@@ -64,6 +64,8 @@ Changed `print '%d / %d'` → `print('%d / %d')` in `calculateSimilarItems()`.
 ---
 
 ## Q1: Finding a Substitute User
+
+![Question 1 Answer](images/Question%201.png)
 
 Searched `u.user` for male users aged 20–28 with technical occupations (technician, programmer, engineer). Three candidates:
 
@@ -138,6 +140,8 @@ User 1 is a 24-year-old male technician: the closest demographic match. Their ta
 
 ## Q2: User Correlations
 
+![Question 2 Answer](images/Question%202.png)
+
 Correlation computed using `sim_pearson()` from `recommendations.py`.
 
 **Top 5 Most Correlated to User 1:**
@@ -172,6 +176,8 @@ Correlation computed using `sim_pearson()` from `recommendations.py`.
 
 ## Q3: Film Recommendations
 
+![Question 2 Answer](images/Question%203.png)
+
 Recommendations generated using `getRecommendations()` from `recommendations.py`.
 
 **Top 5 Recommended Films (User 1 Should See):**
@@ -203,6 +209,8 @@ Recommendations generated using `getRecommendations()` from `recommendations.py`
 ---
 
 ## Q4: Item-Based Correlations
+
+![Question 2 Answer](images/Question%204.png)
 
 My (the real me) choices from the dataset:
 
