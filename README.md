@@ -18,6 +18,8 @@ Norfolk, Virginia
 - [Homework 2](#homework-2)
 - [Homework 3](#homework-3)
 - [Homework 4](#homework-4)
+- [Homework 5](#homework-5)
+- [Homework 6](#homework-6)
 - [License](#-license)
 - [Acknowledgments](#-acknowledgments)
 
@@ -90,7 +92,7 @@ This project explores a fundamental question in web science:
 ## Homework 4  
 🔗 [https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW4](https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW4)
 
-### Web Archiving - Memento Age Analysis & WARC Collection (Part 2)
+### Web Archiving - Memento Age Analysis & WARC Collection (Part 2)  
 
 This assignment demonstrates:
 - Parsing JSON TimeMaps to extract earliest memento datetimes for 441 URI-Rs
@@ -98,8 +100,37 @@ This assignment demonstrates:
 - Archiving 10 live webpages using the ArchiveWeb.page browser extension (Webrecorder)
 - Replaying WACZ archives locally with ReplayWeb.page and analyzing captured URLs by file type
 
-This project explores two core web archiving concepts:
-how age and popularity shape a URI-R's memento history, and how browser-based archiving captures the full resource graph of modern web pages.
+This project explores two core web archiving concepts:  
+How age and popularity shape a URI-R's memento history, and how browser-based archiving captures the full resource graph of modern web pages.
+
+---
+
+## Homework 5  
+🔗 [https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW5](https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW5)
+
+### Graph Partitioning - Zachary's Karate Club  
+
+This assignment demonstrates:  
+- Loading and visualizing real-world social network data using NetworkX  
+- Implementing the Girvan-Newman graph partitioning algorithm from scratch  
+- Computing edge betweenness centrality using BFS-based back-propagation (Brandes, 2001)  
+- Iteratively removing high-betweenness edges and tracking connected components  
+- Comparing a mathematically-predicted community split to the observed real-world outcome  
+
+This project explores a foundational question in social network analysis:  
+Can the structure of social interactions alone predict how a group will fracture?  
+
+---
+
+## Homework 6
+🔗 [https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW6](https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW6)
+
+### Title
+
+This assignment demonstrates:  
+- 
+
+This project explores:   
 
 ---
 
