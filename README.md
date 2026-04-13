@@ -125,12 +125,13 @@ Can the structure of social interactions alone predict how a group will fracture
 ## Homework 6
 🔗 [https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW6](https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW6)
 
-### Title
+### Recommendation Systems
 
-This assignment demonstrates:  
-- 
-
-This project explores:   
+This assignment applies collaborative filtering techniques from Programming Collective Intelligence (Chapter 2) to the MovieLens 100K dataset. The goal is to:  
+- Identify demographically similar users to act as a "substitute me"  
+- Find users whose movie ratings correlate most (and least) with the substitute  
+- Generate personalized movie recommendations for the substitute  
+- Explore item-based similarity using my own favorite and least favorite films  
 
 ---
 
