@@ -20,6 +20,7 @@ Norfolk, Virginia
 - [Homework 4](#homework-4)
 - [Homework 5](#homework-5)
 - [Homework 6](#homework-6)
+- [Homework 7](#homework-7)
 - [License](#-license)
 - [Acknowledgments](#-acknowledgments)
 
@@ -134,6 +135,18 @@ This assignment applies collaborative filtering techniques from Programming Coll
 - Explore item-based similarity using my own favorite and least favorite films  
 
 ---
+
+## Homework 7
+🔗 [https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW7](https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW7)  
+
+### Email Spam Classification  
+
+This assignment builds a Naive Bayes email classifier to distinguish between two types of spam:  
+- On-topic (phishing): account-threat emails claiming your cloud, streaming, or bank account is locked/suspended and data will be deleted  
+- Off-topic (other): general spam (fake prizes, health cures, loan offers, crypto schemes)  
+- The classifier is implemented from scratch using the Naive Bayes approach from Programming Collective Intelligence Ch. 6, adapted from the class Colab notebook.  
+
+--- 
 
 ## 📝 License
 
