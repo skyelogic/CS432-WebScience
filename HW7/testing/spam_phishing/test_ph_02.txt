@@ -1,0 +1,4 @@
+Subject: Your OneDrive storage is full - Files will be deleted today
+From: Microsoft OneDrive onedrive-noreply@microsoft-storage-alerts.net
+
+Your Microsoft OneDrive storage is completely full. All files, documents, and photos stored in your OneDrive will be permanently deleted today unless you upgrade your storage plan. Click here now to save your files.

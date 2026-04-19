@@ -1,0 +1,4 @@
+Subject: Account suspended: Unusual activity detected on your account
+From: Account Security team-security@account-verify-now.com
+
+We detected unusual activity on your account and have temporarily suspended your access. Your personal data and files may be at risk. Please click the link below to verify your identity and restore your account before it is permanently closed.
