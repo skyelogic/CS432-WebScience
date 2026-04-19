@@ -1,0 +1,4 @@
+Subject: Your Amazon account has been locked due to suspicious activity
+From: Amazon Security amazon-noreply@amazon-account-alert.com
+
+We have locked your Amazon account because we detected unauthorized sign-in attempts. You must verify your identity to unlock your account. Failure to verify within 24 hours will result in permanent account closure.

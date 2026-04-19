@@ -1,0 +1,4 @@
+Subject: ALERT: Your Dropbox has been suspended due to terms violation
+From: Dropbox Support dropbox-noreply@dropbox-accounts.net
+
+Your Dropbox account has been suspended due to a violation of our terms of service. All files in your account are at risk of permanent deletion. Please log in immediately to appeal this decision and restore access to your files.

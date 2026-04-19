@@ -1,0 +1,4 @@
+Subject: Your Google account storage is full - Photos will be deleted
+From: Google One storage-noreply@google-storage-alerts.com
+
+Your Google account storage is 100 percent full. Your photos will be permanently deleted in 48 hours unless you upgrade or free up space. Act now to prevent data loss. Click here to manage storage.

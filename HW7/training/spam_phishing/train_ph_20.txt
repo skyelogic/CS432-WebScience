@@ -1,0 +1,4 @@
+Subject: Your photos are about to be permanently deleted from cloud storage
+From: Storage Alerts storage-alerts@cloudbackup-noreply.net
+
+URGENT NOTICE: Your cloud backup subscription has expired and your photos will be permanently deleted in 24 hours. This action cannot be reversed. To save your photos and restore your backup service, click below and update your subscription immediately.

@@ -1,0 +1,4 @@
+Subject: Action Required: Your Microsoft account will be suspended
+From: Microsoft Account Team account-security@microsoftonline.support
+
+We have detected suspicious activity on your Microsoft account. Your account will be suspended within 24 hours unless you verify your identity. Click here to confirm your information and secure your account.

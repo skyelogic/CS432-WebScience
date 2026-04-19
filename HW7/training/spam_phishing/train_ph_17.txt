@@ -1,0 +1,4 @@
+Subject: Your iCloud account has been compromised - Verify immediately
+From: Apple iCloud Security icloud-security@apple-id-verification.com
+
+We have detected that your iCloud account may have been compromised. Your photos, contacts, and documents are at risk. Please verify your Apple ID immediately to secure your account. If you do not verify within 12 hours your data will be deleted.

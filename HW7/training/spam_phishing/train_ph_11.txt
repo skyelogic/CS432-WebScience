@@ -1,0 +1,4 @@
+Subject: Your PayPal account has been limited - Act now
+From: PayPal Service paypal-service@paypal-secure-alerts.com
+
+We have limited your PayPal account because we noticed some unusual activity. To restore your full account access, you will need to confirm your information. Click here to verify now. If you do not act within 48 hours your account will be permanently suspended.

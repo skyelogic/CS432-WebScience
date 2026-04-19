@@ -1,0 +1,4 @@
+Subject: Verify your identity or lose access to your account today
+From: Account Services verify@account-services-alert.com
+
+Your account access will be revoked today. We require you to verify your identity to continue using our services. Failure to verify within the next few hours will result in your account being permanently locked and all associated data deleted.

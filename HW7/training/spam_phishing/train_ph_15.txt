@@ -1,0 +1,4 @@
+Subject: WARNING: Unauthorized access to your bank account detected
+From: Security Alert securityalert@bankofamerica-secure.net
+
+We have detected unauthorized access to your Bank of America account. Your account has been temporarily suspended for your security. Please click the link below to verify your identity and restore access immediately.

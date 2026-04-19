@@ -1,0 +1,4 @@
+Subject: Final warning: Your email account will be deleted
+From: Email Security Team security@emailprovider-noreply.com
+
+This is your final warning. Your email account will be permanently deleted in 24 hours due to inactivity and expired storage. To prevent deletion click the link below and log in to keep your account active.
