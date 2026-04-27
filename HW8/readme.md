@@ -35,12 +35,12 @@ The resulting similarity score was low, which made sense: bottles and thunder do
 
 To increase the similarity, I replaced **"thunder"** with **"lightning"**: a word that frequently co-occurs with "storm" and appears in many of the same contexts as weather-related vocabulary. However, I also tried swapping "bottle" with **"storm"** to see if that gave an even better result.
 
-![Semantic Similarity - bottle vs jar](images/q1_1_similarity_high.png)
+![Semantic Similarity - bottle vs lightning](images/word%20pairs%201.png)
 *Figure 1: Higher similarity score after changing one word to "lightning"*
 
 The better approach turned out to be comparing **"bottle"** with **"jar"**: two words that describe similar physical containers, which the model rated with a much higher cosine similarity score.
 
-![Semantic Similarity - bottle vs jar](images/q1_1_similarity_high.png)
+![Semantic Similarity - bottle vs jar](images/word%20pairs%202.png)
 *Figure 2: Higher similarity score after changing one word to "jar"*
 
 **Takeaway:** The model captures meaning through co-occurrence in text. Words that appear in similar contexts (containers, storage, kitchen items) score higher than words from entirely different domains.
@@ -53,14 +53,14 @@ The better approach turned out to be comparing **"bottle"** with **"jar"**: two 
 
 I generated a random word using the noun generator and got **"violin"**. I searched for its 10 nearest semantic associates using the English Wikipedia model.
 
-![Violin semantic associates](images/q1_2_violin_associates.png)
+![Violin semantic associates](images/violin%20similar%20words.png)
 *Figure 3: 10 nearest semantic associates for "violin"*
 
 The top associate returned was **"cello"**: a closely related string instrument that shares almost all of the same musical, orchestral, and performance contexts.
 
 I then clicked on **"cello"** to check its top associates.
 
-![Cello semantic associates](images/q1_2_cello_associates.png)
+![Cello semantic associates](images/cello%20similar%20words.png)
 *Figure 4: 10 nearest semantic associates for "cello"*
 
 **Was "violin" the top associate for "cello"?**
@@ -75,7 +75,7 @@ Yes: "violin" appeared as the top (or near-top) associate for "cello" as well. T
 
 I generated a new random word: **"glacier"**. After finding its 10 nearest semantic associates (which included words like "iceberg," "snowfield," "moraine," and "ice sheet"), I clicked the generated visualization link: **"Semantic associates for glacier"**: to view the force-directed diagram.
 
-![Glacier force-directed diagram](images/q1_3_glacier_diagram.png)
+![Glacier force-directed diagram](images/glacier%20vector.png)
 *Figure 5: Force-directed diagram showing semantic neighborhood of "glacier"*
 
 The diagram shows the word "glacier" at the center connected to its top associates, with those associates also showing their own connections. The clustering reflects the word's strong ties to Arctic/Antarctic geography, climate science, and geological terminology: all domains where "glacier" appears frequently in Wikipedia.
