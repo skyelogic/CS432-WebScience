@@ -21,6 +21,7 @@ Norfolk, Virginia
 - [Homework 5](#homework-5)
 - [Homework 6](#homework-6)
 - [Homework 7](#homework-7)
+- [Homework 8](#homework-8)
 - [License](#-license)
 - [Acknowledgments](#-acknowledgments)
 
@@ -145,6 +146,19 @@ This assignment builds a Naive Bayes email classifier to distinguish between two
 - On-topic (phishing): account-threat emails claiming your cloud, streaming, or bank account is locked/suspended and data will be deleted  
 - Off-topic (other): general spam (fake prizes, health cures, loan offers, crypto schemes)  
 - The classifier is implemented from scratch using the Naive Bayes approach from Programming Collective Intelligence Ch. 6, adapted from the class Colab notebook.  
+
+--- 
+
+## Homework 8
+🔗 [[https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW8](https://github.com/odu-cs432-websci/spr26-skyelogic/tree/main/HW8)
+
+### Exploring LLMs    
+
+This assignment explores several practical applications of Large Language Models and word embeddings:  
+- Word vectors: using the WebVectors English Wikipedia model to calculate semantic similarity, find nearest semantic associates, and visualize force-directed diagrams of word neighborhoods  
+- ChatGPT prompts: demonstrating 5 creative role-based prompts (interviewer, comedian, rapper, magician, and a personal survival analysis)  
+- Concept explanation: asking ChatGPT to clarify a confusing course topic (PageRank) through conversation and follow-up questions  
+- Academic references: prompting ChatGPT to describe research and cite papers for 3 ODU faculty members, then verifying whether those papers actually exist  
 
 --- 
 
